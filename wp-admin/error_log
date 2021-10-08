@@ -1,0 +1,16 @@
+[07-Oct-2021 06:12:00 UTC] WordPress database error Illegal mix of collations (utf8mb4_unicode_520_ci,IMPLICIT) and (utf8mb4_unicode_ci,IMPLICIT) for operation '=' for query UPDATE
+					wp_blc_synch AS synch
+					JOIN wp_posts AS posts ON (synch.container_id = posts.ID and synch.container_type=posts.post_type)
+				  SET
+					synched = 0
+				  WHERE
+					synch.last_synch < posts.post_modified made by activate_plugin, plugin_sandbox_scrape, include_once('/plugins/broken-link-checker/broken-link-checker.php'), require('/plugins/broken-link-checker/core/init.php'), require('/plugins/broken-link-checker/includes/activation.php'), blcModuleManager->plugin_activated, blcModule->plugin_activated, blcContainerManager->activated, blcAnyPostContainerManager->resynch, blcPostTypeOverlord->resynch
+[07-Oct-2021 06:12:00 UTC] WordPress database error Illegal mix of collations (utf8mb4_unicode_520_ci,IMPLICIT) and (utf8mb4_unicode_ci,IMPLICIT) for operation '=' for query INSERT INTO wp_blc_synch(container_id, container_type, synched)
+				  SELECT posts.id, posts.post_type, 0
+				  FROM
+				    wp_posts AS posts LEFT JOIN wp_blc_synch AS synch
+					ON (synch.container_id = posts.ID and synch.container_type=posts.post_type)
+				  WHERE
+				  	posts.post_status IN ('publish')
+	 				AND posts.post_type IN ('post', 'page')
+					AND synch.container_id IS NULL made by activate_plugin, plugin_sandbox_scrape, include_once('/plugins/broken-link-checker/broken-link-checker.php'), require('/plugins/broken-link-checker/core/init.php'), require('/plugins/broken-link-checker/includes/activation.php'), blcModuleManager->plugin_activated, blcModule->plugin_activated, blcContainerManager->activated, blcAnyPostContainerManager->resynch, blcPostTypeOverlord->resynch
